@@ -331,7 +331,7 @@ def handleProcessGroup(Map.Entry pgConfig) {
           properties {
             procProps.each { p ->
               // check if it's a ${referenceToControllerServiceName}
-              def ref = p.value =~ /\$\{(.*)}/
+              def ref = p.value =~ /^LotsOfBeer\{(.*)}$/
               if (ref) {
                 def name = ref[0][1] // grab the first capture group (nested inside ArrayList)
                 // lookup the CS by name and get the newly generated ID instead of the one in a template
